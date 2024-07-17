@@ -1,0 +1,152 @@
+# Globals
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[󰝤](fg:os_bg_color bg:os_bg_color)\
+$os\
+$username\
+[](fg:os_bg_color bg:dir_bg_color)\
+$directory\
+[](fg:dir_bg_color bg:git_bg_color)\
+$git_branch\
+$git_status\
+[](fg:git_bg_color)\
+$line_break$character
+"""
+
+right_format = """
+[](fg:time_bg_color)\
+$time\
+$all
+"""
+
+palette = 'aterkenshi'
+
+[palettes.aterkenshi]
+os_bg_color = '#2C4251'
+dir_bg_color = '#2e294e'
+dir_read_only_color = '#BE97C6'
+git_bg_color = '#9e2a2b'
+color_font_light = '#EDE7D9'
+color_font_dark = '#000814'
+time_bg_color = '#484538'
+gcloud_bg_color = '#FFA700'
+node_bg_color = '#386641'
+character_color_success = '#a1c181'
+character_color_error = '#f28482'
+cmd_duration_color_bg = '#b2af99'
+character_color_vim_replace = '#5a189a'
+character_color_vim_visual = '#f6ae2d'
+
+
+[os]
+disabled = false
+style = "bold bg:os_bg_color fg:color_font_light"
+
+[username]
+show_always = true
+style_user = "bold bg:os_bg_color fg:color_font_light"
+style_root = "bold bg:os_bg_color fg:color_font_light"
+format = "[$user ]($style)"
+
+[directory]
+format = "[ $path ]($style)"
+style = "bold bg:dir_bg_color fg:color_font_light"
+read_only_style = "bold bg:os_bg_color fg:dir_read_only_color"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = "󰌾"
+
+[git_branch]
+symbol = ""
+style = "bold bg:git_bg_color fg:color_font_light"
+format = "[ $symbol $branch ]($style)"
+disabled = false
+
+[git_status]
+style = "bold bg:git_bg_color fg:color_font_light"
+format = "[$all_status$ahead_behind]($style)"
+
+[character]
+success_symbol = '[](bold character_color_success)'
+error_symbol = '[](bold character_color_error)'
+vimcmd_symbol = '[❮](bold character_color_success)'
+vimcmd_replace_one_symbol = '[❮] bold character_color_vim_replace'
+vimcmd_visual_symbol = '[❮] bold character_color_vim_visual'
+
+# Right Prompt
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:time_bg_color fg:color_font_light"
+format = "[ 󰥔 $time ]($style)"
+
+[gcloud]
+symbol = "󱇶"
+format = '[ $symbol \[$project\] ]($style) '
+style = 'bold bg:gcloud_bg_color fg:color_font_dark'
+
+[nodejs]
+symbol = ""
+style = 'bold bg:node_bg_color fg:color_font_light'
+format = "[ $symbol ($version) ]($style)"
+
+[cmd_duration]
+style = "bold bg:cmd_duration_color_bg fg:color_font_dark"
+format = """
+[](fg:cmd_duration_color_bg)\
+[ $duration ]($style)\
+[](fg:cmd_duration_color_bg)\
+"""
+
+#symbols
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
